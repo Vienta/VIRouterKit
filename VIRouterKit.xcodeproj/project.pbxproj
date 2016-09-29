@@ -13,6 +13,8 @@
 		B3B309151D9D03B7004331B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B309131D9D03B7004331B9 /* Main.storyboard */; };
 		B3B309171D9D03B7004331B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3B309161D9D03B7004331B9 /* Assets.xcassets */; };
 		B3B3091A1D9D03B7004331B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3B309181D9D03B7004331B9 /* LaunchScreen.storyboard */; };
+		B3F3FC051D9D0748003EFC0D /* VIRouterKit.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F3FC041D9D0748003EFC0D /* VIRouterKit.m */; };
+		B3F99C7F1D9D31FC0084A9C3 /* UIViewController+Router.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F99C7E1D9D31FC0084A9C3 /* UIViewController+Router.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		B3B309161D9D03B7004331B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3B309191D9D03B7004331B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3B3091B1D9D03B7004331B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3F3FC031D9D0748003EFC0D /* VIRouterKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VIRouterKit.h; sourceTree = "<group>"; };
+		B3F3FC041D9D0748003EFC0D /* VIRouterKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VIRouterKit.m; sourceTree = "<group>"; };
+		B3F99C7D1D9D31FC0084A9C3 /* UIViewController+Router.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Router.h"; sourceTree = "<group>"; };
+		B3F99C7E1D9D31FC0084A9C3 /* UIViewController+Router.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Router.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +64,7 @@
 		B3B309091D9D03B7004331B9 /* VIRouterKit */ = {
 			isa = PBXGroup;
 			children = (
+				B3B309211D9D058C004331B9 /* Class */,
 				B3B3090D1D9D03B7004331B9 /* AppDelegate.h */,
 				B3B3090E1D9D03B7004331B9 /* AppDelegate.m */,
 				B3B309101D9D03B7004331B9 /* ViewController.h */,
@@ -77,6 +84,18 @@
 				B3B3090B1D9D03B7004331B9 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B3B309211D9D058C004331B9 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				B3F3FC031D9D0748003EFC0D /* VIRouterKit.h */,
+				B3F3FC041D9D0748003EFC0D /* VIRouterKit.m */,
+				B3F99C7D1D9D31FC0084A9C3 /* UIViewController+Router.h */,
+				B3F99C7E1D9D31FC0084A9C3 /* UIViewController+Router.m */,
+			);
+			name = Class;
+			path = ../Class;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F3FC051D9D0748003EFC0D /* VIRouterKit.m in Sources */,
 				B3B309121D9D03B7004331B9 /* ViewController.m in Sources */,
 				B3B3090F1D9D03B7004331B9 /* AppDelegate.m in Sources */,
+				B3F99C7F1D9D31FC0084A9C3 /* UIViewController+Router.m in Sources */,
 				B3B3090C1D9D03B7004331B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +330,7 @@
 				B3B309201D9D03B7004331B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
