@@ -23,22 +23,31 @@
  */
 @property (nonatomic, copy) NSString *clsAliasConfigFileName;
 
+
++ (instancetype)sharedInstance;
+
+
 /**
- 类别名配置文件所在的文件夹目录
+ 类名和类的别名的映射
  */
-@property (nonatomic, copy) NSString *clsAliasConfigFileFolder;
-
-/**
- 类别名配置文件存放的目录
- */
-@property (nonatomic, copy) NSString *clsAliasConfigFilePath;
-
-
-- (instancetype)sharedInstance;
+- (void)setClassAliasConfig:(NSDictionary *)clsAliasConfigMapper;
 
 // scheme://alias?param1=value1&param2=value2  建议以url形式
 - (void)openUrl:(NSString *)url delegate:(id)delegate;
 
+
+/**
+ 打开不带scheme的url
+ */
+- (void)openNoneSchemaUrl:(NSString *)url delegate:(id)delegate;
+
+/**
+ 以类名的方式跳转
+
+ @param clsName  类名
+ @param parmas   参数
+ @param delegate 代理ViewController
+ */
 - (void)openCls:(NSString *)clsName parmas:(NSDictionary *)parmas delegate:(id)delegate;
 
 

@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "VIRouterKit.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [[VIRouterKit sharedInstance] openUrl:@"scheme://alias?param1=value1&param2=value2" delegate:nil];
+    
     return YES;
 }
 
