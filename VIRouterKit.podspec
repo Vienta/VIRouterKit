@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "VIRouterKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "An iOS viewController transition library"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
-  An iOS viewController transition library
+  An iOS viewController transition library.Simple.
                    DESC
 
   s.homepage     = "https://github.com/Vienta/VIRouterKit.git"
@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   #
 
   # s.platform     = :ios
-  # s.platform     = :ios, "5.0"
+  s.platform     = :ios, "7.0"
 
   #  When using multiple platforms
   # s.ios.deployment_target = "5.0"
