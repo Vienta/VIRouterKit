@@ -18,4 +18,9 @@
     return nil;
 }
 
+- (BOOL)needInNavigationController
+{
+    return NO;
+}
+
 @end

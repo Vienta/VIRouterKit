@@ -40,13 +40,14 @@
         return;
     }
     
-    
-    
     NSUInteger from = fromClsAliasRange.location + fromClsAliasRange.length;
     NSUInteger to = toClsAliasRange.location;
     NSUInteger length = to - from;
     
     NSString *schema = [url substringToIndex:fromClsAliasRange.location];
+    
+    NSLog(@"schema:%@", schema);
+    
     if (!self.schema) {
         self.schema = schema;
     }
@@ -70,11 +71,37 @@
 
 - (void)openNoneSchemaUrl:(NSString *)url delegate:(id)delegate
 {
+    NSRange toClsAliasRange = [url rangeOfString:@"?"];
+    if (!toClsAliasRange.length) {
+        return;
+    }
     
+    NSUInteger from = 0;
+    NSUInteger to = toClsAliasRange.location;
+    NSUInteger length = to - from;
+    
+    NSString *clsAlias = [url substringWithRange:NSMakeRange(from, length)];
+    
+    NSString *properties = [url substringFromIndex:to + 1];
+    NSArray *propertyPairs = [properties componentsSeparatedByString:@"&"];
+    
+    NSMutableDictionary *propertiesMapper = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *property in propertyPairs) {
+        NSArray *propertyPair = [property componentsSeparatedByString:@"="];
+        [propertiesMapper setObject:propertyPair[1] forKey:propertyPair[0]];
+    }
+    
+    [self openCls:clsAlias parmas:propertiesMapper delegate:delegate];
 }
 
-- (void)openCls:(NSString *)clsName parmas:(NSDictionary *)parmas delegate:(id)delegate
+- (void)openCls:(NSString *)clsName parmas:(NSDictionary *)parmas delegate:(UIViewController *)delegate
 {
+    
+    if (![delegate isKindOfClass:[UIViewController class]]) {
+        return;
+    }
+    
     NSString *className = [self classNameFromClassAlias:clsName];
     if (!className) {
         className = clsName;
@@ -110,8 +137,24 @@
             [viewController setValue:[propertyMapper objectForKey:key] forKey:key];
         }
     }
-    
-    
+
+    if (!delegate.navigationController) {
+        BOOL needInNavigation = [delegate needInNavigationController];
+        if (needInNavigation) {
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [delegate presentViewController:navigationController animated:YES completion:nil];
+        } else {
+            [delegate presentViewController:viewController animated:YES completion:nil];
+        }
+    } else {
+        BOOL needInNavigation = [delegate needInNavigationController];
+        if (needInNavigation) {
+            UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+            [delegate.navigationController pushViewController:navigationController animated:YES];
+        } else {
+            [delegate.navigationController pushViewController:viewController animated:YES];
+        }
+    }
 }
 
 - (NSString *)classNameFromClassAlias:(NSString *)clsAlias

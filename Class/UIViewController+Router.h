@@ -11,5 +11,6 @@
 @interface UIViewController (Router)
 
 - (NSDictionary *)customPropertyMapper;
+- (BOOL)needInNavigationController;
 
 @end

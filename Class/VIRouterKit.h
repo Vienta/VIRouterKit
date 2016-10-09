@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 /**
  VIRouterKit以单例的模式进行配置和调用
@@ -33,13 +34,13 @@
 - (void)setClassAliasConfig:(NSDictionary *)clsAliasConfigMapper;
 
 // scheme://alias?param1=value1&param2=value2  建议以url形式
-- (void)openUrl:(NSString *)url delegate:(id)delegate;
+- (void)openUrl:(NSString *)url delegate:(UIViewController *)delegate;
 
 
 /**
- 打开不带scheme的url
+ 打开不带scheme的url  alias?param1=value1&param2=value2  建议以url形式
  */
-- (void)openNoneSchemaUrl:(NSString *)url delegate:(id)delegate;
+- (void)openNoneSchemaUrl:(NSString *)url delegate:(UIViewController *)delegate;
 
 /**
  以类名的方式跳转
@@ -48,7 +49,7 @@
  @param parmas   参数
  @param delegate 代理ViewController
  */
-- (void)openCls:(NSString *)clsName parmas:(NSDictionary *)parmas delegate:(id)delegate;
+- (void)openCls:(NSString *)clsName parmas:(NSDictionary *)parmas delegate:(UIViewController *)delegate;
 
 
 @end
