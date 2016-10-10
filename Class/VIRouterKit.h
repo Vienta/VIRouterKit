@@ -28,10 +28,6 @@
 + (instancetype)sharedInstance;
 
 
-/**
- 类名和类的别名的映射
- */
-- (void)setClassAliasConfig:(NSDictionary *)clsAliasConfigMapper;
 
 // scheme://alias?param1=value1&param2=value2  建议以url形式
 - (void)openUrl:(NSString *)url delegate:(UIViewController *)delegate;
